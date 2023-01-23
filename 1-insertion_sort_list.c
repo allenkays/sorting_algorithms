@@ -40,11 +40,11 @@ void insertion_sort_list(listint_t **list)
 			{
 				swap_list(j->prev, j);
 				if (!j->prev)
-					*list =j;
+					*list = j;
 				print_list((const listint_t *)*list);
 			}
 			else
-				j = j -> prev;
-		}	
-	}	
+				j = j->prev;
+		}
+	}
 }
