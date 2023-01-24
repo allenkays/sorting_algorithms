@@ -1,5 +1,16 @@
 #include "sort.h"
 
+void swap_qsort(int *array, size_t size, int *a, int *b)
+{
+	if (*a != *b)
+	{
+		*a = *a + *b;
+		*b = *a - *b;
+		*a = *a - *b;
+		print_array((const int *)array, size);
+	}
+}
+
 /**
  * lomuto_partition - considers last element as pivot,
  * places the pivot at the last elements position and
@@ -14,28 +25,20 @@
  */
 size_t lomuto_partition(int *arr, size_t size, ssize_t start, ssize_t end)
 {
-	int pivot, i, j, tmp;
+	int pivot, i, j;
 
 	pivot = arr[end];
-	i = (start - 1);
+	i = (start);
 
-	for (j = start; j <= end - 1; j++)
+	for (j = start; j <= end; j++)
 	{
 		if (arr[j] < pivot)
 		{
-			i++;
-
-			tmp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = tmp;
+			swap_qsort(arr, size, &arr[j], &arr[i++]);
 		}
 	}
-	tmp = arr[i + 1];
-	arr[i + 1] = arr[end];
-	arr[end] = tmp;
-	print_array((const int *)arr, size);
-
-	return (i + 1);
+	swap_qsort(arr, size, &arr[i], &arr[end]);
+	return (i);
 }
 /**
  * quicksort - quicksort algorithm implementation with lomuto_parttion
