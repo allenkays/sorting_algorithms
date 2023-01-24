@@ -1,5 +1,12 @@
 #include "sort.h"
 
+/**
+ * swap_qsort - swaps 2 int values
+ * @array: the integer array to sort
+ * @size: the size of the array
+ * @a: address of first value
+ * @b: address of second value
+ */
 void swap_qsort(int *array, size_t size, int *a, int *b)
 {
 	if (*a != *b)
