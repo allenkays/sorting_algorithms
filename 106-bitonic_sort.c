@@ -1,19 +1,6 @@
 #include "sort.h"
 
 /**
- * bitonic_sort - sorts an array following the Bitonic sort algorithm
- * @array: array of ints to sort
- * @size: size of the array
- */
-void bitonic_sort(int *array, size_t size)
-{
-	if (!array || size < 2)
-		return;
-
-	bitonic_recursion(array, 0, size - 1, 1, size);
-}
-
-/**
  * bitonic_recursion - recursive function for bitonic sort
  * @array: array to sort
  * @l: index of the left-most element
@@ -72,4 +59,18 @@ void bitonic_merge(int *array, int l, int r, int direction)
 		bitonic_merge(array, step + 1, r, direction);
 	}
 
+}
+
+
+/**
+ * bitonic_sort - sorts an array following the Bitonic sort algorithm
+ * @array: array of ints to sort
+ * @size: size of the array
+ */
+void bitonic_sort(int *array, size_t size)
+{
+	if (!array || size < 2)
+		return;
+
+	bitonic_recursion(array, 0, size - 1, 1, size);
 }
