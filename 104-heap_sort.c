@@ -7,8 +7,7 @@
  */
 void heap_sort(int *array, size_t size)
 {
-	int i;
-	int tmp;
+	int i, tmp;
 
 	if (size < 2)
 		return;
